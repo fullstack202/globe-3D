@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "color-convert": "^2.0.1",
+    "color-name": "^1.1.4",
+    "jquery": "^3.6.0",
+    "moment": "^2.29.1",
+    "three": "^0.126.0"
+  }
+}

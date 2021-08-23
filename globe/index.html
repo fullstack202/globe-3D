@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>GLOBE</title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        .overlay {
+            width: 130px;
+            height: 100%;
+            z-index: 1;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            position: absolute;
+            overflow: auto;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.1);
+            /*can be anything, of course*/
+        }
+
+        #popup {
+            min-width: 350px;
+            padding: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            display: none;
+            position: fixed;
+        }
+
+        #popup:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: rgba(71, 74, 176, 0.45);
+            filter: blur(30px);
+        }
+
+        #description {
+            height: 70px;
+            display: flex;
+            background: rgb(17, 30, 60);
+            background: linear-gradient(180deg, #101530 0%, #253279 100%);
+            border-radius: 10px;
+            color: white;
+            top: 10px;
+            left: 10px;
+            padding-right: 20px;
+        }
+
+        #info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #info > a {
+            font-family: Gotham, Arial, sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: -0.04em;
+            text-decoration: none;
+        }
+
+        #info > h3 {
+            font-family: Questrial, Arial, sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            margin: 0 0 4px;
+            letter-spacing: -0.04em;
+            padding: 0;
+        }
+
+        #info > p {
+            margin: 0;
+            padding: 0;
+        }
+
+        #thumbnail-container {
+            display: flex;
+            margin-right: 20px;
+            position: relative;
+        }
+
+        #img-thumbnail {
+            width: 130px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        #img-play {
+            position: absolute;
+            top: 13px;
+            z-index: 10;
+            left: 40px;
+        }
+
+        i {
+            padding-right: 10px;
+            color: green;
+        }
+
+        span {
+            color: white;
+            font-size: 30px;
+        }
+
+        a:link {
+            color: white;
+        }
+        /* visited link */
+
+        a:visited {
+            color: white;
+        }
+        /* mouse over link */
+
+        a:hover {
+            color: #ff69b4;
+        }
+
+        img {
+            object-fit: cover;
+        }
+
+        #map {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<div id="popup">
+    <div id="description">
+        <div id="thumbnail-container">
+            <img id="img-thumbnail" alt="Video Thumbnail" src="">
+            <div class="overlay"></div>
+            <img id="img-play" src="assets/play.png" alt="play">
+        </div>
+        <div id="info">
+            <h3 id="description-title"></h3>
+            <a id="description-link" target="_blank">Click here to see the full video</a>
+        </div>
+    </div>
+</div>
+<canvas id="map" width="400" height="200"></canvas>
+<script type='module' src="js/main.js"></script>
+<script src="js/fontawesome.js" crossorigin="anonymous"></script>
+<script></script>
+</body>
+</html>
